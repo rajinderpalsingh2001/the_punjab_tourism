@@ -16,6 +16,11 @@ jobs:
       - uses: subosito/flutter-action@v2
         with:
           flutter-version: 'stable'
+          
+      - name: Get dependencies
+        run: |
+          wget -q -O - https://storage.googleapis.com/flutter_infra_public/releases/stable/linux/flutter_2.x.x-stable.tar.xz | tar -xJf -
+          export PATH="$PATH:$HOME/flutter/bin"
 
       - name: Get dependencies
         run: flutter pub get
