@@ -5,6 +5,9 @@ Our Tourism app for Punjab is designed to revolutionize the way people plan and 
 
 ---
 
+**Vision **: Our app has the potential to reshape tourism in Punjab, making it more accessible, enjoyable, and economically beneficial for both travelers and local communities alike. By organizing this segment, we are not just creating an app; we are building a bridge that connects people to Punjab's rich heritage, landscapes, and culture—one unforgettable trip at a time.
+---
+
 ## **Key Features and Benefits**
 
 ### 1. **Streamlined Information Access**  
@@ -34,7 +37,5 @@ Our Tourism app for Punjab is designed to revolutionize the way people plan and 
    - **Convenience**: One app covers all aspects of a travel plan—from finding places to eat to curating a day-by-day itinerary.
    - **Innovation**: Leveraging AI for itinerary planning and visual recognition provides users with a tech-forward, future-ready experience.
 
----
 
-**Final Thought**: Our app has the potential to reshape tourism in Punjab, making it more accessible, enjoyable, and economically beneficial for both travelers and local communities alike. By organizing this segment, we are not just creating an app; we are building a bridge that connects people to Punjab's rich heritage, landscapes, and culture—one unforgettable trip at a time.
 
