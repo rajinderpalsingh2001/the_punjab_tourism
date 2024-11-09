@@ -58,10 +58,14 @@ class _CityPlacesUIState extends State<CityPlacesUI> {
         ),
         actions: [
           ElevatedButton(
+            style: ElevatedButton.styleFrom(
+              foregroundColor: ColorConstants.LIGHT_GREY,
+              backgroundColor: ColorConstants.LIGHT_GREY
+            ),
                   onPressed: () {
                     Get.to(() => ItineraryUI(cityName: widget.city.cityName));
                   },
-                  child: Text("Plan Itinerary"))
+                  child: Text("Plan Itinerary", style: TextStyle(color: Colors.black),))
         ],
         body: Padding(
           padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
