@@ -81,6 +81,7 @@ flutter:
     - assets/anandpursahib/
     - assets/chandigarh/
     - assets/patiala/
+    - assets/food/
     - assets/icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
