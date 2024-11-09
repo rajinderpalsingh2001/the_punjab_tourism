@@ -7,6 +7,8 @@ class PlaceModel {
   bool isAssetImage;
   String longDescription;
   bool isFoodItem;
+  double? latitude;
+  double? longitude;
 
   PlaceModel(
       {required this.id,
@@ -16,5 +18,6 @@ class PlaceModel {
       required this.imagePath,
       required this.longDescription,
       required this.isAssetImage,
+      this.latitude, this.longitude,
       this.isFoodItem = false});
 }

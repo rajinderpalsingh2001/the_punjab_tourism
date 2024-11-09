@@ -4,6 +4,7 @@ import 'package:the_punjab_tourism/constants/color_constants.dart';
 
 class PlaceCityView extends StatelessWidget {
   final Function() onTap;
+  final Function() onIconButtonPress;
   final String title;
   final String subtitle;
   final String imagePath;
@@ -20,6 +21,7 @@ class PlaceCityView extends StatelessWidget {
       required this.imagePath,
       required this.iconData,
       required this.heroTag,
+      required this.onIconButtonPress,
       this.imageHeight,
       this.imageWidth});
 
@@ -110,9 +112,7 @@ class PlaceCityView extends StatelessWidget {
             child: Transform.translate(
               offset: const Offset(15, 15),
               child: ElevatedButton(
-                onPressed: () {
-                  // Button action
-                },
+                onPressed: onIconButtonPress,
                 style: ElevatedButton.styleFrom(
                   elevation: 6.0,
                   shape: const CircleBorder(),
@@ -149,7 +149,10 @@ class PlaceCityView extends StatelessWidget {
               return const Icon(Icons.broken_image, size: 50);
             },
             progressIndicatorBuilder: (context, url, progress) {
-              if (progress.progress == null) return Center(child: CircularProgressIndicator(),);
+              if (progress.progress == null)
+                return Center(
+                  child: CircularProgressIndicator(),
+                );
               return Center(
                 child: CircularProgressIndicator(
                   value: progress.downloaded / (progress.totalSize ?? 1),

@@ -58,14 +58,16 @@ class _CityPlacesUIState extends State<CityPlacesUI> {
         ),
         actions: [
           ElevatedButton(
-            style: ElevatedButton.styleFrom(
-              foregroundColor: ColorConstants.LIGHT_GREY,
-              backgroundColor: ColorConstants.LIGHT_GREY
-            ),
-                  onPressed: () {
-                    Get.to(() => ItineraryUI(cityName: widget.city.cityName));
-                  },
-                  child: const Text("Plan Itinerary", style: TextStyle(color: Colors.black),))
+              style: ElevatedButton.styleFrom(
+                  foregroundColor: ColorConstants.LIGHT_GREY,
+                  backgroundColor: ColorConstants.LIGHT_GREY),
+              onPressed: () {
+                Get.to(() => ItineraryUI(cityName: widget.city.cityName));
+              },
+              child: const Text(
+                "Plan Itinerary",
+                style: TextStyle(color: Colors.black),
+              ))
         ],
         body: Padding(
           padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
@@ -102,7 +104,6 @@ class _CityPlacesUIState extends State<CityPlacesUI> {
                   },
                   hintText: "Search in ${widget.city.cityName}",
                   controller: placeController.searchPlaceController),
-             
               Expanded(
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
@@ -117,6 +118,9 @@ class _CityPlacesUIState extends State<CityPlacesUI> {
                       iconData: Icons.navigation,
                       onTap: () {
                         Get.to(() => PlaceDetailUI(place: places[index]));
+                      },
+                      onIconButtonPress: () {
+                        placeController.launchMap(place: places[index]);
                       },
                     );
                   },

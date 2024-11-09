@@ -26,7 +26,7 @@ class _HomeUIState extends State<HomeUI> {
       expandedHeight: 100,
       isCentered: true,
       body: Padding(
-        padding: const EdgeInsets.only(left:10.0, right: 10.0, top: 10.0),
+        padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
         child: bodyContainer(),
       ),
     ));
@@ -67,9 +67,11 @@ class _HomeUIState extends State<HomeUI> {
       isAssetImage: city.isAssetImage,
       iconData: Icons.map,
       onTap: () {
-      Get.to(() => CityPlacesUI(city: city));
-    });
+        Get.to(() => CityPlacesUI(city: city));
+      },
+      onIconButtonPress: () {
+        cityController.launchMap(city: city);
+      },
+    );
   }
-
-
 }

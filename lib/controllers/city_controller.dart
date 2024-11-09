@@ -15,6 +15,7 @@ class CityController extends GetxController {
       CityModel(
           id: 1,
           cityName: "Amritsar",
+          latitude: 31.630886852998035, longitude: 74.87560862349407,
           imagePath:
               "assets/Amritsar/golden_temple_outro.jpg",
               isAssetImage: true,
@@ -22,6 +23,7 @@ class CityController extends GetxController {
       CityModel(
           id: 2,
           cityName: "Chandigarh",
+          latitude: 30.73520546617692, longitude: 76.77688852611628,
           imagePath:
               "assets/chandigarh/handmonument_outro.jpg",
               isAssetImage: true,
@@ -30,6 +32,7 @@ class CityController extends GetxController {
           id: 3,
           cityName: "Patiala",
           isAssetImage: true,
+          latitude: 30.337444141863468, longitude: 76.38501635625401,
           imagePath:
               "assets/patiala/Patiala_outro.jpg",
           pincode: 147001),
@@ -37,45 +40,10 @@ class CityController extends GetxController {
           id: 4,
           cityName: "Anandpur Sahib",
           isAssetImage: true,
+          latitude: 31.235619854948794, longitude: 76.50155656531467,
           imagePath:
               "assets/anandpursahib/virasat-e-khalsa-outro.jpg",
           pincode: 144401),
-      CityModel(
-          id: 5,
-          cityName: "Kapurthala",
-          imagePath:
-              "https://travelsetu.com/apps/uploads/new_destinations_photos/destination/2024/01/08/88ce9e17d3ccb3fae260451912f6a157_1000x1000.jpg",
-          pincode: 144601),
-      CityModel(
-          id: 6,
-          cityName: "Jalandhar",
-          imagePath:
-              "https://www.tourismpunjabindia.com/upload/Jalandhar/Devi_Talab_Mandir_Jalandhar.jpg",
-          pincode: 144001),
-      CityModel(
-          id: 7,
-          cityName: "Bathinda",
-          imagePath:
-              "https://www.tourismpunjabindia.com/upload/Bathinda/Qila_Mubarak_Bathinda.jpg",
-          pincode: 151001),
-      CityModel(
-          id: 8,
-          cityName: "Hoshiarpur",
-          imagePath:
-              "https://www.tourismpunjabindia.com/upload/Hoshiarpur/Ranjit_Sagar_Dam_Hoshiarpur.jpg",
-          pincode: 146001),
-      CityModel(
-          id: 9,
-          cityName: "Ropar",
-          imagePath:
-              "https://www.tourismpunjabindia.com/upload/Ropar/Anandpur_Sahib_Gurudwara.jpg",
-          pincode: 140001),
-      CityModel(
-          id: 10,
-          cityName: "Sangrur",
-          imagePath:
-              "https://www.tourismpunjabindia.com/upload/Sangrur/Giani_Zail_Singh_College_Sangrur.jpg",
-          pincode: 148001)
     ]);
   }
 
@@ -83,13 +51,14 @@ class CityController extends GetxController {
     return "${city.id}-${city.cityName}";
   }
 
-  Future launchMap() async {
+    Future launchMap({required CityModel city}) async {
     if (await MapLauncher.isMapAvailable(MapType.google) == true) {
       await MapLauncher.showMarker(
         mapType: MapType.google,
-        coords: Coords(31.62019544769442, 74.87657727079666),
-        title: "Golden Temple", 
+        coords: Coords(city.latitude, city.longitude),
+        title: city.cityName, 
       );
     }
   }
+
 }

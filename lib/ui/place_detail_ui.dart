@@ -105,7 +105,9 @@ class _PlaceDetailUIState extends State<PlaceDetailUI> {
                       right: 20,
                       child: IconButton.filled(
                           padding: EdgeInsets.all(20.0),
-                          onPressed: () {},
+                          onPressed: () {
+                            placeController.launchMap(place: widget.place);
+                          },
                           icon: Icon(Icons.navigation))),
                 ],
               );
