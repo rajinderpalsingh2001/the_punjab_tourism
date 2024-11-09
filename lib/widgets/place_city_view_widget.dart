@@ -13,6 +13,7 @@ class PlaceCityView extends StatelessWidget {
   final double? imageHeight;
   final IconData iconData;
   final String heroTag;
+  final bool showIcon;
   PlaceCityView(
       {required this.onTap,
       required this.title,
@@ -22,6 +23,7 @@ class PlaceCityView extends StatelessWidget {
       required this.iconData,
       required this.heroTag,
       required this.onIconButtonPress,
+      this.showIcon = true,
       this.imageHeight,
       this.imageWidth});
 
@@ -106,6 +108,7 @@ class PlaceCityView extends StatelessWidget {
               ),
             ),
           ),
+          if(showIcon)
           Positioned(
             bottom: 0,
             right: 10,

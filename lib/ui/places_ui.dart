@@ -28,11 +28,13 @@ class _CityPlacesUIState extends State<CityPlacesUI> {
   CityController cityController = Get.find();
   final PlaceController placeController = Get.find();
   List<PlaceModel> places = [];
+  List<PlaceModel> foods = [];
 
   @override
   void initState() {
     super.initState();
     places = placeController.placesByCity[widget.city.id] ?? [];
+    foods = placeController.foodsByCity[widget.city.id] ?? [];
   }
 
   @override
@@ -57,17 +59,20 @@ class _CityPlacesUIState extends State<CityPlacesUI> {
           icon: const Icon(Icons.arrow_back, size: 18),
         ),
         actions: [
-          ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                  foregroundColor: ColorConstants.LIGHT_GREY,
-                  backgroundColor: ColorConstants.LIGHT_GREY),
-              onPressed: () {
-                Get.to(() => ItineraryUI(cityName: widget.city.cityName));
-              },
-              child: const Text(
-                "Plan Itinerary",
-                style: TextStyle(color: Colors.black),
-              ))
+          Padding(
+            padding: const EdgeInsets.only(right: 10.0),
+            child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                    foregroundColor: ColorConstants.LIGHT_GREY,
+                    backgroundColor: ColorConstants.LIGHT_GREY),
+                onPressed: () {
+                  Get.to(() => ItineraryUI(cityName: widget.city.cityName));
+                },
+                child: const Text(
+                  "Plan Itinerary",
+                  style: TextStyle(color: Colors.black),
+                )),
+          )
         ],
         body: Padding(
           padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
@@ -77,56 +82,138 @@ class _CityPlacesUIState extends State<CityPlacesUI> {
     );
   }
 
-  Widget bodyContainer() {
-    return places.isEmpty
-        ? const Center(
-            child: Column(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Icon(Icons.hourglass_empty, size: 50, color: Colors.grey),
-                SizedBox(height: 10),
-                Text(
-                  "Oops! No Places",
-                  style: TextStyle(fontSize: 18.0, color: Colors.grey),
-                ),
-              ],
-            ),
-          )
-        : Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
+Widget bodyContainer() {
+  return places.isEmpty
+      ? const Center(
+          child: Column(
+            mainAxisSize: MainAxisSize.min,
             children: [
-              const SizedBox(
-                height: 18.0,
+              Icon(Icons.hourglass_empty, size: 50, color: Colors.grey),
+              SizedBox(height: 10),
+              Text(
+                "Oops! No Places",
+                style: TextStyle(fontSize: 18.0, color: Colors.grey),
               ),
-              PrimarySearchField(
+            ],
+          ),
+        )
+      : foods.isNotEmpty
+          ? DefaultTabController(
+              length: 2,
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const SizedBox(height: 18.0),
+                  PrimarySearchField(
+                    onChanged: (value) {
+                      print("called");
+                    },
+                    hintText: "Search in ${widget.city.cityName}",
+                    controller: placeController.searchPlaceController,
+                  ),
+                  TabBar(
+                    tabs: const [
+                      Tab(text: "Places"),
+                      Tab(text: "Foods"),
+                    ],
+                    labelColor: Colors.black,
+                    unselectedLabelColor: Colors.grey,
+                  ),
+                  Expanded(
+                    child: TabBarView(
+                      children: [
+                        // Places Tab
+                        ListView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          itemCount: places.length,
+                          itemBuilder: (context, index) {
+                            return PlaceCityView(
+                              heroTag: placeController.getHeroTag(
+                                  place: places[index]),
+                                showIcon: true,
+                              title: places[index].placeName,
+                              subtitle: places[index].description,
+                              imagePath: places[index].imagePath,
+                              isAssetImage: places[index].isAssetImage,
+                              iconData: Icons.navigation,
+                              onTap: () {
+                                Get.to(() =>
+                                    PlaceDetailUI(place: places[index]));
+                              },
+                              onIconButtonPress: () {
+                                placeController.launchMap(
+                                    place: places[index]);
+                              },
+                            );
+                          },
+                        ),
+                        // Foods Tab
+                        ListView.builder(
+                          physics: const BouncingScrollPhysics(),
+                          itemCount: foods.length,
+                          itemBuilder: (context, index) {
+                            return PlaceCityView(
+                              heroTag: placeController.getHeroTag(
+                                  place: foods[index]),
+                                  showIcon: false,
+                              title: foods[index].placeName,
+                              subtitle: foods[index].description,
+                              imagePath: foods[index].imagePath,
+                              isAssetImage: foods[index].isAssetImage,
+                              iconData: Icons.local_dining,
+                              onTap: () {
+                                Get.to(() =>
+                                    PlaceDetailUI(place: foods[index]));
+                              },
+                              onIconButtonPress: () {
+                                // Optionally, handle any action for food items
+                              },
+                            );
+                          },
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            )
+          : Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const SizedBox(height: 18.0),
+                PrimarySearchField(
                   onChanged: (value) {
                     print("called");
                   },
                   hintText: "Search in ${widget.city.cityName}",
-                  controller: placeController.searchPlaceController),
-              Expanded(
-                child: ListView.builder(
-                  physics: const BouncingScrollPhysics(),
-                  itemCount: places.length,
-                  itemBuilder: (context, index) {
-                    return PlaceCityView(
-                      heroTag: placeController.getHeroTag(place: places[index]),
-                      title: places[index].placeName,
-                      subtitle: places[index].description,
-                      imagePath: places[index].imagePath,
-                      isAssetImage: places[index].isAssetImage,
-                      iconData: Icons.navigation,
-                      onTap: () {
-                        Get.to(() => PlaceDetailUI(place: places[index]));
-                      },
-                      onIconButtonPress: () {
-                        placeController.launchMap(place: places[index]);
-                      },
-                    );
-                  },
+                  controller: placeController.searchPlaceController,
                 ),
-              ),
-            ],
-          );
-  }
+                Expanded(
+                  child: ListView.builder(
+                    physics: const BouncingScrollPhysics(),
+                    itemCount: places.length,
+                    itemBuilder: (context, index) {
+                      return PlaceCityView(
+                        heroTag: placeController.getHeroTag(
+                            place: places[index]),
+                        showIcon: true,
+                        title: places[index].placeName,
+                        subtitle: places[index].description,
+                        imagePath: places[index].imagePath,
+                        isAssetImage: places[index].isAssetImage,
+                        iconData: Icons.navigation,
+                        onTap: () {
+                          Get.to(() => PlaceDetailUI(place: places[index]));
+                        },
+                        onIconButtonPress: () {
+                          placeController.launchMap(place: places[index]);
+                        },
+                      );
+                    },
+                  ),
+                ),
+              ],
+            );
+}
+
 }
