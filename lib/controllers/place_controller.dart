@@ -63,6 +63,16 @@ class PlaceController extends GetxController {
         imagePath: "assets/Amritsar/partition_museum_outro.jpg",
         isAssetImage: true,
       ),
+      PlaceModel(
+          id: 18,
+          placeName: "Aaloo Parantha",
+          description:
+              "",
+          cityId: 1,
+          imagePath:
+              "assets/Amritsar/golden_temple_outro.jpg",
+          longDescription: "",
+          isAssetImage: true, isFoodItem: true),
 // chandigarh
       PlaceModel(
           id: 6,
@@ -172,7 +182,6 @@ class PlaceController extends GetxController {
           imagePath: "assets/anandpursahib/anandpur_sahib_outro.jpg",
           isAssetImage: true),
     ]);
-
     initializePlacesByCity();
   }
 

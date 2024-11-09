@@ -40,6 +40,7 @@ dependencies:
   map_launcher: ^3.5.0
   cached_network_image: ^3.4.0
   flutter_gemini: ^2.0.5
+  flutter_launcher_icons: ^0.14.1
 
 dev_dependencies:
   flutter_test:
@@ -54,7 +55,17 @@ dev_dependencies:
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
-
+flutter_launcher_icons:
+  android: "launcher_icon"
+  ios: false
+  adaptive_icon_background: "#e8eaf6"
+  image_path: "assets/icon.png"
+  min_sdk_android: 21 # android min sdk min:16, default 21
+  web:
+    generate: true
+    image_path: "assets/icon.jpg"
+    background_color: "#f5f5f5"
+    theme_color: "#f5f5f5"
 # The following section is specific to Flutter packages.
 flutter:
 
@@ -70,6 +81,7 @@ flutter:
     - assets/anandpursahib/
     - assets/chandigarh/
     - assets/patiala/
+    - assets/icon.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:map_launcher/map_launcher.dart';
 import 'package:the_punjab_tourism/models/city_model.dart';
 
 class CityController extends GetxController {
@@ -80,5 +81,15 @@ class CityController extends GetxController {
 
   String getHeroTag({required CityModel city}) {
     return "${city.id}-${city.cityName}";
+  }
+
+  Future launchMap() async {
+    if (await MapLauncher.isMapAvailable(MapType.google) == true) {
+      await MapLauncher.showMarker(
+        mapType: MapType.google,
+        coords: Coords(31.62019544769442, 74.87657727079666),
+        title: "Golden Temple", 
+      );
+    }
   }
 }

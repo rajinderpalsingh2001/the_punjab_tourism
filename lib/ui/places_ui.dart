@@ -65,7 +65,7 @@ class _CityPlacesUIState extends State<CityPlacesUI> {
                   onPressed: () {
                     Get.to(() => ItineraryUI(cityName: widget.city.cityName));
                   },
-                  child: Text("Plan Itinerary", style: TextStyle(color: Colors.black),))
+                  child: const Text("Plan Itinerary", style: TextStyle(color: Colors.black),))
         ],
         body: Padding(
           padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
