@@ -79,10 +79,11 @@ class PrimaryAppBar extends StatelessWidget {
                               borderRadius: BorderRadius.only(
                                   bottomLeft: Radius.circular(30.0),
                                   bottomRight: Radius.circular(30.0)),
-                              child: CachedNetworkImage(
-                                imageUrl: backgroundImage!,
-                                fit: BoxFit.cover,
-                              ),
+                              // child: CachedNetworkImage(
+                              //   imageUrl: backgroundImage!,
+                              //   fit: BoxFit.cover,
+                              // ),
+                              child: Image.asset(backgroundImage!,fit: BoxFit.cover,)
                             ))
                         : null,
               ),

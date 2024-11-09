@@ -15,25 +15,29 @@ class CityController extends GetxController {
           id: 1,
           cityName: "Amritsar",
           imagePath:
-              "https://m.media-amazon.com/images/I/715Sr0EKR5L._AC_UF1000,1000_QL80_.jpg",
+              "assets/Amritsar/golden_temple_outro.jpg",
+              isAssetImage: true,
           pincode: 143001),
       CityModel(
           id: 2,
           cityName: "Chandigarh",
           imagePath:
-              "https://next57.com/wp-content/uploads/2024/06/b8f7e3efd3386de8d1cfb6c73af2f1e2.jpg",
+              "assets/chandigarh/handmonument_outro.jpg",
+              isAssetImage: true,
           pincode: 143001),
       CityModel(
           id: 3,
           cityName: "Patiala",
+          isAssetImage: true,
           imagePath:
-              "https://cdn.tripuntold.com/media/photos/location/2018/10/13/a651974d-cd55-4135-ada5-64cec41130ac.jpg",
+              "assets/patiala/Patiala_outro.jpg",
           pincode: 147001),
       CityModel(
           id: 4,
           cityName: "Anandpur Sahib",
+          isAssetImage: true,
           imagePath:
-              "https://www.thatgoangirl.com/wp-content/uploads/2023/02/things-to-do-in-anandpur-sahib.jpg",
+              "assets/anandpursahib/virasat-e-khalsa-outro.jpg",
           pincode: 144401),
       CityModel(
           id: 5,

@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
       title: 'The Punjab Tourism',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(        
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.yellow),
+        colorScheme: ColorScheme.fromSeed(seedColor: Colors.purpleAccent),
         useMaterial3: true,
       ),
       home: const HomeUI(),

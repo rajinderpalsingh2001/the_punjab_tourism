@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:panorama_viewer_plus/panorama_viewer_plus.dart';
+import 'package:the_punjab_tourism/controllers/place_controller.dart';
 import 'package:the_punjab_tourism/models/place_model.dart';
 import 'package:the_punjab_tourism/widgets/leading_back_button.dart';
 import 'package:the_punjab_tourism/widgets/primary_heading.dart';
@@ -13,6 +15,7 @@ class PlaceDetailUI extends StatefulWidget {
 }
 
 class _PlaceDetailUIState extends State<PlaceDetailUI> {
+  PlaceController placeController = Get.find();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -34,12 +37,16 @@ class _PlaceDetailUIState extends State<PlaceDetailUI> {
                         bottomLeft: Radius.circular(30.0),
                         bottomRight: Radius.circular(30.0),
                       ),
-                      child: CustomPanoramaViewer(
-                        // imagePath:
-                        //     "https://lh5.googleusercontent.com/p/AF1QipMYRi4cZHJ4f2VJNUEg7OS3lkwm0baQmJUbXDhk",
-                        imagePath: "assets/pano/golden_temple.jpg",                        
-                        isAssetImage: true,
-                      ),
+                      // child: CustomPanoramaViewer(
+                      //   // imagePath:
+                      //   //     "https://lh5.googleusercontent.com/p/AF1QipMYRi4cZHJ4f2VJNUEg7OS3lkwm0baQmJUbXDhk",
+                      //   imagePath: "assets/panorama/golden_temple.jpg",
+                      //   isAssetImage: true,
+                      // ),
+                      child: Hero(
+                          tag: placeController.getHeroTag(place: widget.place),
+                          child: Image.asset(widget.place.imagePath,
+                              fit: BoxFit.cover)),
                     ),
                   ),
                 ),
