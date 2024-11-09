@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:map_launcher/map_launcher.dart';
+import 'package:maps_launcher/maps_launcher.dart';
 import 'package:the_punjab_tourism/models/city_model.dart';
 
 class CityController extends GetxController {
@@ -52,13 +52,7 @@ class CityController extends GetxController {
   }
 
     Future launchMap({required CityModel city}) async {
-    if (await MapLauncher.isMapAvailable(MapType.google) == true) {
-      await MapLauncher.showMarker(
-        mapType: MapType.google,
-        coords: Coords(city.latitude, city.longitude),
-        title: city.cityName, 
-      );
-    }
+      MapsLauncher.launchCoordinates(city.latitude, city.longitude);
   }
 
 }

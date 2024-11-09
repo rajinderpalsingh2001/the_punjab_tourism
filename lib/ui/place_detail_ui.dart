@@ -100,6 +100,7 @@ class _PlaceDetailUIState extends State<PlaceDetailUI> {
                       ),
                     ),
                   ),
+                  if(!widget.place.isFoodItem)
                   Positioned(
                       top: -30,
                       right: 20,
