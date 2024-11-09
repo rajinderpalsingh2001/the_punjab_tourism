@@ -81,11 +81,47 @@ class PlaceController extends GetxController {
       ),
       PlaceModel(
           id: 18,
-          placeName: "Aaloo Parantha",
-          description: "",
+          placeName: "Amritsari Kulcha",
+          description:
+              "A fluffy, buttery flatbread stuffed with spiced potatoes and peas.",
           cityId: 1,
-          imagePath: "assets/Amritsar/golden_temple_outro.jpg",
-          longDescription: "",
+          imagePath: "assets/food/amritsari_aloo_kulche.jpg",
+          longDescription:
+              "A fluffy, buttery flatbread stuffed with a delicious mixture of spiced potatoes and peas. Best enjoyed with a side of chole (chickpea curry). Try it at Kake Da Hotel or Giani Buta Singh.",
+          isAssetImage: true,
+          isFoodItem: true),
+
+      PlaceModel(
+          id: 19,
+          placeName: "Amritsari Fish",
+          description: "A crispy, deep-fried fish marinated in spices.",
+          cityId: 1,
+          imagePath: "assets/food/amritsari_fish.jpg",
+          longDescription:
+              "A crispy, deep-fried fish marinated in a blend of spices. It's a must-try for seafood lovers. Head to Crystal Restaurant or Makhan Fish Corner.",
+          isAssetImage: true,
+          isFoodItem: true),
+
+      PlaceModel(
+          id: 20,
+          placeName: "Lassi",
+          description: "A creamy, yogurt-based drink.",
+          cityId: 1,
+          imagePath: "assets/food/amritsari_lassi.jpg",
+          longDescription:
+              "A creamy, yogurt-based drink that comes in various flavors like sweet, salty, and fruity. Perfect for cooling down on a hot day. Try it at Giani Tea Stall or Laxmi Chocolate Shop.",
+          isAssetImage: true,
+          isFoodItem: true),
+
+      PlaceModel(
+          id: 21,
+          placeName: "Tandoori Chicken",
+          description:
+              "Juicy, flavorful chicken marinated in yogurt and spices.",
+          cityId: 1,
+          imagePath: "assets/food/amritsari_butter_Chicken.jpg",
+          longDescription:
+              "A juicy, flavorful chicken marinated in yogurt and spices, then cooked in a tandoor oven. Best enjoyed with naan or roti. Try it at Brother's Dhaba or Makhan Fish Corner.",
           isAssetImage: true,
           isFoodItem: true),
 // chandigarh
@@ -147,6 +183,50 @@ class PlaceController extends GetxController {
               "Zakir Hussain Rose Garden in Chandigarh is Asia’s largest rose garden, sprawling over 30 acres. It boasts an impressive collection of over 16,000 rose varieties, along with other medicinal and decorative plants. The garden is a visual treat, especially during the annual Rose Festival, which features cultural performances, flower competitions, and stalls. It's a paradise for nature lovers and a peaceful retreat for those seeking relaxation amidst fragrant blooms.",
           imagePath: "assets/chandigarh/zakhir_husen_garden.jpg",
           isAssetImage: true),
+      PlaceModel(
+          id: 23,
+          placeName: "Sarson Da Saag and Makki Di Roti",
+          description: "Creamy spinach curry with cornmeal flatbreads.",
+          cityId: 2,
+          imagePath: "assets/food/sarson_ka_sagh_chandigarh.jpg",
+          longDescription:
+              "A wintertime staple, this dish features a creamy spinach curry served with cornmeal flatbreads. A taste of Punjabi comfort food. Try it at any dhaba in Chandigarh.",
+          isAssetImage: true,
+          isFoodItem: true),
+
+      PlaceModel(
+          id: 24,
+          placeName: "Butter Chicken",
+          description: "Rich, creamy tomato-based curry with tender chicken.",
+          cityId: 2,
+          imagePath: "assets/food/butter_Chicken_chadigarh.jpg",
+          longDescription:
+              "A rich, creamy tomato-based curry with tender pieces of chicken. A popular dish across India, but Chandigarh does it particularly well. Try it at Sector 7 or 17.",
+          isAssetImage: true,
+          isFoodItem: true),
+
+      PlaceModel(
+          id: 25,
+          placeName: "Tandoori Momos",
+          description: "Grilled momos with a spicy chutney.",
+          cityId: 2,
+          imagePath: "assets/food/tandoori_momos_chandigah.jpg",
+          longDescription:
+              "A unique twist on the classic dumpling, these momos are grilled to perfection in a tandoor oven. Enjoy them with a spicy chutney. Try them at any street food vendor in Sector 17.",
+          isAssetImage: true,
+          isFoodItem: true),
+
+      PlaceModel(
+          id: 26,
+          placeName: "Punjabi Thali",
+          description:
+              "A variety of Punjabi dishes, including curries, breads, and desserts.",
+          cityId: 2,
+          imagePath: "assets/food/punjabi_thali_chandigarh.jpg",
+          longDescription:
+              "A hearty meal featuring a variety of Punjabi dishes, including curries, breads, and desserts. A great way to sample the flavors of the region. Try it at any Punjabi restaurant in Chandigarh.",
+          isAssetImage: true,
+          isFoodItem: true),
 
 // Patiala
       PlaceModel(
@@ -189,10 +269,10 @@ class PlaceController extends GetxController {
           placeName: "Sheesh Mahal",
           description: "Palace known for its intricate mirror work & frescoes.",
           cityId: 3,
-          latitude: 31.213923460436845,
-          longitude: 76.70459755877695,
           longDescription:
               "Sheesh Mahal in Patiala is a stunning palace renowned for its intricate mirror work and colorful frescoes. Built during the reign of Maharaja Narinder Singh, the palace reflects the grandeur of the royal era. It houses a museum displaying rare artifacts, including a gallery dedicated to miniature paintings. The Sheesh Mahal’s beauty and historical significance make it a key attraction for history enthusiasts and art lovers.",
+          latitude: 31.213923460436845,
+          longitude: 76.70459755877695,
           imagePath: "assets/patiala/sheesh_mahal_patiala.jpg",
           isAssetImage: true),
 // Annand pur sahib
@@ -203,10 +283,10 @@ class PlaceController extends GetxController {
           description:
               "Holiest Gurudwara for Sikhs, commemorating the Khalsa Panth.",
           cityId: 4,
-          latitude: 31.235660954056772,
-          longitude: 76.49875170318278,
           longDescription:
               "Takht Sri Keshgarh Sahib, located in Anandpur Sahib, is one of the five Takhts, or seats of authority, in Sikhism. It holds immense religious significance as the birthplace of the Khalsa Panth. The Gurudwara’s serene ambiance, coupled with its historical importance, attracts pilgrims and tourists alike. Its intricate architecture and spiritual aura offer a profound experience of devotion and peace.",
+          latitude: 31.235660954056772,
+          longitude: 76.49875170318278,
           imagePath: "assets/anandpursahib/takhtshri_keshgarh_outro.jpg",
           isAssetImage: true),
       PlaceModel(
