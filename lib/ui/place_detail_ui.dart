@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:panorama_viewer_plus/panorama_viewer_plus.dart';
 import 'package:the_punjab_tourism/controllers/place_controller.dart';
 import 'package:the_punjab_tourism/models/place_model.dart';
 import 'package:the_punjab_tourism/widgets/leading_back_button.dart';

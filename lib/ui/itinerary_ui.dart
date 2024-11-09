@@ -1,7 +1,4 @@
-import 'dart:developer';
-
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:the_punjab_tourism/constants/color_constants.dart';
 import 'package:the_punjab_tourism/controllers/ai_controller.dart';

@@ -14,7 +14,6 @@ class AiController extends GetxController {
 
   Future<Itinerary?> getItinerary({required AiInputModel input}) async {
     try {
-      log('itnimary ai call');
       Candidates? candidates = await gemini.text(_generatePrompt(input: input),
           modelName: 'models/gemini-1.5-flash');
       if (candidates != null) {
