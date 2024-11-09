@@ -1,10 +1,16 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:the_punjab_tourism/constants/color_constants.dart';
+import 'package:the_punjab_tourism/controllers/ai_controller.dart';
 import 'package:the_punjab_tourism/controllers/city_controller.dart';
 import 'package:the_punjab_tourism/controllers/place_controller.dart';
+import 'package:the_punjab_tourism/models/ai_input_model.dart';
+import 'package:the_punjab_tourism/models/itinerary_model.dart';
 import 'package:the_punjab_tourism/models/city_model.dart';
 import 'package:the_punjab_tourism/models/place_model.dart';
+import 'package:the_punjab_tourism/ui/itinerary_ui.dart';
 import 'package:the_punjab_tourism/ui/place_detail_ui.dart';
 import 'package:the_punjab_tourism/widgets/place_city_view_widget.dart';
 import 'package:the_punjab_tourism/widgets/primary_appbar.dart';
@@ -50,6 +56,13 @@ class _CityPlacesUIState extends State<CityPlacesUI> {
           },
           icon: const Icon(Icons.arrow_back, size: 18),
         ),
+        actions: [
+          ElevatedButton(
+                  onPressed: () {
+                    Get.to(() => ItineraryUI(cityName: widget.city.cityName));
+                  },
+                  child: Text("Plan Itinerary"))
+        ],
         body: Padding(
           padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
           child: bodyContainer(),
@@ -85,6 +98,7 @@ class _CityPlacesUIState extends State<CityPlacesUI> {
                   },
                   hintText: "Search in ${widget.city.cityName}",
                   controller: placeController.searchPlaceController),
+             
               Expanded(
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
