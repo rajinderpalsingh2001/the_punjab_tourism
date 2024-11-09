@@ -18,101 +18,59 @@ class CityController extends GetxController {
               "https://m.media-amazon.com/images/I/715Sr0EKR5L._AC_UF1000,1000_QL80_.jpg",
           pincode: 143001),
       CityModel(
-          id: 2,
-          cityName: "Ludhiana",
-          imagePath:
-              "https://upload.wikimedia.org/wikipedia/commons/a/a9/Ludhiana_city.jpg",
-          pincode: 141001),
+        id: 2,
+        cityName: "Chandigarh",
+        imagePath: "https://next57.com/wp-content/uploads/2024/06/b8f7e3efd3386de8d1cfb6c73af2f1e2.jpg",
+        pincode: 143001
+        ),
       CityModel(
-          id: 3,
-          cityName: "Jalandhar",
-          imagePath:
-              "https://upload.wikimedia.org/wikipedia/commons/4/47/Jalandhar_City.jpg",
-          pincode: 144001),
+        id: 3,
+        cityName: "Patiala",
+        imagePath: "https://cdn.tripuntold.com/media/photos/location/2018/10/13/a651974d-cd55-4135-ada5-64cec41130ac.jpg",
+        pincode: 147001
+        ),
       CityModel(
-          id: 4,
-          cityName: "Patiala",
-          imagePath:
-              "https://upload.wikimedia.org/wikipedia/commons/1/13/Patiala_Quila_Mubarak.jpg",
-          pincode: 147001),
+        id: 4,
+        cityName: "Anandpur Sahib",
+        imagePath: "https://www.thatgoangirl.com/wp-content/uploads/2023/02/things-to-do-in-anandpur-sahib.jpg",
+        pincode: 144401
+        ),
       CityModel(
-          id: 5,
-          cityName: "Bathinda",
-          imagePath:
-              "https://upload.wikimedia.org/wikipedia/commons/2/25/Qila_Mubarak_Bathinda.jpg",
-          pincode: 151001),
+        id: 5,
+        cityName: "Kapurthala",
+        imagePath: "https://travelsetu.com/apps/uploads/new_destinations_photos/destination/2024/01/08/88ce9e17d3ccb3fae260451912f6a157_1000x1000.jpg",
+        pincode: 144601
+        ),
       CityModel(
-          id: 6,
-          cityName: "Mohali",
-          imagePath:
-              "https://upload.wikimedia.org/wikipedia/commons/6/6b/Mohali_IT_Park.jpg",
-          pincode: 160062),
+        id: 6,
+        cityName: "Jalandhar",
+        imagePath: "https://www.tourismpunjabindia.com/upload/Jalandhar/Devi_Talab_Mandir_Jalandhar.jpg",
+        pincode: 144001
+        ),
       CityModel(
-          id: 7,
-          cityName: "Hoshiarpur",
-          imagePath:
-              "https://upload.wikimedia.org/wikipedia/commons/5/5c/Hoshiarpur_town.jpg",
-          pincode: 146001),
+        id: 7,
+        cityName: "Bathinda",
+        imagePath: "https://www.tourismpunjabindia.com/upload/Bathinda/Qila_Mubarak_Bathinda.jpg",
+        pincode: 151001
+        ),
       CityModel(
-          id: 8,
-          cityName: "Pathankot",
-          imagePath:
-              "https://upload.wikimedia.org/wikipedia/commons/6/67/Pathankot_city.jpg",
-          pincode: 145001),
+        id: 8,
+        cityName: "Hoshiarpur",
+        imagePath: "https://www.tourismpunjabindia.com/upload/Hoshiarpur/Ranjit_Sagar_Dam_Hoshiarpur.jpg",
+        pincode: 146001
+        ),
       CityModel(
-          id: 9,
-          cityName: "Moga",
-          imagePath:
-              "https://upload.wikimedia.org/wikipedia/commons/3/35/Moga_City_Punjab.jpg",
-          pincode: 142001),
+        id: 9,
+        cityName: "Ropar",
+        imagePath: "https://www.tourismpunjabindia.com/upload/Ropar/Anandpur_Sahib_Gurudwara.jpg",
+        pincode: 140001
+        ),
       CityModel(
-          id: 10,
-          cityName: "Ferozepur",
-          imagePath:
-              "https://upload.wikimedia.org/wikipedia/commons/4/48/Ferozepur_Border.jpg",
-          pincode: 152001),
-      CityModel(
-          id: 11,
-          cityName: "Sangrur",
-          imagePath:
-              "https://upload.wikimedia.org/wikipedia/commons/d/d9/Sangrur_Town.jpg",
-          pincode: 148001),
-      CityModel(
-          id: 12,
-          cityName: "Gurdaspur",
-          imagePath:
-              "https://upload.wikimedia.org/wikipedia/commons/7/7a/Gurdaspur_City.jpg",
-          pincode: 143521),
-      CityModel(
-          id: 13,
-          cityName: "Fazilka",
-          imagePath:
-              "https://upload.wikimedia.org/wikipedia/commons/1/17/Fazilka_Punjab.jpg",
-          pincode: 152123),
-      CityModel(
-          id: 14,
-          cityName: "Kapurthala",
-          imagePath:
-              "https://upload.wikimedia.org/wikipedia/commons/6/61/Kapurthala_Punjab.jpg",
-          pincode: 144601),
-      CityModel(
-          id: 15,
-          cityName: "Barnala",
-          imagePath:
-              "https://upload.wikimedia.org/wikipedia/commons/2/22/Barnala_Punjab.jpg",
-          pincode: 148101),
-      CityModel(
-          id: 16,
-          cityName: "Tarn Taran",
-          imagePath:
-              "https://upload.wikimedia.org/wikipedia/commons/9/91/Tarn_Taran_Sahib.jpg",
-          pincode: 143401),
-      CityModel(
-          id: 17,
-          cityName: "Rupnagar",
-          imagePath:
-              "https://upload.wikimedia.org/wikipedia/commons/c/c4/Rupnagar_City.jpg",
-          pincode: 140001),
+        id: 10,
+        cityName: "Sangrur",
+        imagePath: "https://www.tourismpunjabindia.com/upload/Sangrur/Giani_Zail_Singh_College_Sangrur.jpg",
+        pincode: 148001
+        )
     ]);
   }
 }
