@@ -20,7 +20,7 @@ class _PlaceDetailUIState extends State<PlaceDetailUI> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Stack(
-        children: [          
+        children: [
           Positioned.fill(
             bottom: 120.0,
             child: Column(
@@ -105,16 +105,14 @@ class _PlaceDetailUIState extends State<PlaceDetailUI> {
                       top: -30,
                       right: 20,
                       child: IconButton.filled(
-                        padding: EdgeInsets.all(20.0),
-                          onPressed: () {}, icon: Icon(Icons.navigation))),
+                          padding: EdgeInsets.all(20.0),
+                          onPressed: () {},
+                          icon: Icon(Icons.navigation))),
                 ],
               );
             },
           ),
-          Positioned(
-            top: 25,
-            left: 10,
-            child: LeadingBackButton()),
+          Positioned(top: 25, left: 10, child: LeadingBackButton()),
         ],
       ),
     );
