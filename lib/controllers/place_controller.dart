@@ -142,7 +142,7 @@ PlaceModel(
   placeName: "Virasat-e-Khalsa",
   description: "Interactive museum showcasing Sikh history & culture.",
   cityId: 4,
-  imagePath: "url"
+  imagePath: "url",
   isAssetImage: false
 ),
 PlaceModel(
@@ -159,7 +159,7 @@ id: 15,
 placeName: "Takht Sri Keshgarh Sahib",
 description: "Holiest Gurudwara for Sikhs, commemorating the Khalsa Panth.",
 cityId: 4,
-imagePath: "[invalid URL removed]",  Replace with actual image URL
+imagePath: "url",
 isAssetImage: false
 ),
 PlaceModel(

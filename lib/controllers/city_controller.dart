@@ -21,6 +21,7 @@ class CityController extends GetxController {
         id: 2,
         cityName: "Chandigarh",
         imagePath: "https://next57.com/wp-content/uploads/2024/06/b8f7e3efd3386de8d1cfb6c73af2f1e2.jpg",
+        pincode: 143001
         ),
       CityModel(
         id: 3,
