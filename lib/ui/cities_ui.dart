@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:the_punjab_tourism/constants/color_constants.dart';
 import 'package:the_punjab_tourism/controllers/city_controller.dart';
 import 'package:the_punjab_tourism/models/city_model.dart';
-import 'package:the_punjab_tourism/ui/view_city_places_ui.dart';
+import 'package:the_punjab_tourism/ui/places_ui.dart';
 import 'package:the_punjab_tourism/widgets/place_city_view_widget.dart';
 import 'package:the_punjab_tourism/widgets/primary_appbar.dart';
 import 'package:the_punjab_tourism/widgets/primary_heading.dart';
@@ -23,11 +23,11 @@ class _HomeUIState extends State<HomeUI> {
   Widget build(BuildContext context) {
     return Scaffold(
         body: PrimaryAppBar(
-      title: PrimaryHeading(text: "Welcome to Punjab", fontSize: 24.0),
+      titleWidget: PrimaryHeading(text: "Welcome to Punjab", fontSize: 24.0),
       expandedHeight: 100,
       isCentered: true,
       body: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: const EdgeInsets.only(left:10.0, right: 10.0, top: 10.0),
         child: bodyContainer(),
       ),
     ));
@@ -62,13 +62,13 @@ class _HomeUIState extends State<HomeUI> {
   Widget _buildCityCard({required CityModel city}) {
     return PlaceCityView(
       title: city.cityName,
-      heroTag: "${city.id}-${city.cityName}",
+      heroTag: cityController.getHeroTag(city: city),
       subtitle: city.pincode.toString(),
       imagePath: city.imagePath,
       isAssetImage: city.isAssetImage,
       iconData: Icons.map,
       onTap: () {
-      Get.to(() => ViewCityPlacesUI(city: city));
+      Get.to(() => CityPlacesUI(city: city));
     });
   }
 

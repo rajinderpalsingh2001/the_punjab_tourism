@@ -13,7 +13,7 @@ class PrimarySearchField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(10.0),
+      margin: const EdgeInsets.only(left:10.0, right:10.0, top: 10.0),
       padding: const EdgeInsets.symmetric(horizontal: 16.0),
       decoration: BoxDecoration(
         color: ColorConstants.LIGHT_GREY,

@@ -5,6 +5,7 @@ class PlaceModel {
   int cityId;
   String imagePath;
   bool isAssetImage;
+  String longDescription;
 
   PlaceModel(
       {required this.id,
@@ -12,5 +13,6 @@ class PlaceModel {
       required this.description,
       required this.cityId,
       required this.imagePath,
+      required this.longDescription,
       required this.isAssetImage});
 }

@@ -40,6 +40,7 @@ dependencies:
   map_launcher: ^3.5.0
   cached_network_image: ^3.4.0
   panorama_viewer_plus: ^0.1.2
+  flutter_gemini: ^2.0.5
 
 dev_dependencies:
   flutter_test:
@@ -64,9 +65,8 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  assets:
+    - assets/pano/golden_temple.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware

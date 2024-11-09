@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:the_punjab_tourism/controllers/binding/initial_binding.dart';
-import 'package:the_punjab_tourism/ui/home_ui.dart';
+import 'package:the_punjab_tourism/ui/cities_ui.dart';
 
 void main() {
   runApp(const MyApp());

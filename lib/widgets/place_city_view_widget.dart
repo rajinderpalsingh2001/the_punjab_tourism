@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:the_punjab_tourism/constants/color_constants.dart';
 
@@ -139,24 +140,21 @@ class PlaceCityView extends StatelessWidget {
             height: height,
             fit: fit,
           )
-        : Image.network(
-            imagePath,
+        : CachedNetworkImage(
+            imageUrl: imagePath,
             width: width,
             height: height,
             fit: fit,
-            loadingBuilder: (context, child, loadingProgress) {
-              if (loadingProgress == null) return child;
+            errorWidget: (context, url, error) {
+              return const Icon(Icons.broken_image, size: 50);
+            },
+            progressIndicatorBuilder: (context, url, progress) {
+              if (progress.progress == null) return Center(child: CircularProgressIndicator(),);
               return Center(
                 child: CircularProgressIndicator(
-                  value: loadingProgress.expectedTotalBytes != null
-                      ? loadingProgress.cumulativeBytesLoaded /
-                          (loadingProgress.expectedTotalBytes ?? 1)
-                      : null,
+                  value: progress.downloaded / (progress.totalSize ?? 1),
                 ),
               );
-            },
-            errorBuilder: (context, error, stackTrace) {
-              return const Icon(Icons.broken_image, size: 50);
             },
           );
   }

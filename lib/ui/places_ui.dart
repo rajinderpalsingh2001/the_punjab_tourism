@@ -1,23 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:the_punjab_tourism/constants/color_constants.dart';
+import 'package:the_punjab_tourism/controllers/city_controller.dart';
 import 'package:the_punjab_tourism/controllers/place_controller.dart';
 import 'package:the_punjab_tourism/models/city_model.dart';
 import 'package:the_punjab_tourism/models/place_model.dart';
+import 'package:the_punjab_tourism/ui/place_detail_ui.dart';
 import 'package:the_punjab_tourism/widgets/place_city_view_widget.dart';
 import 'package:the_punjab_tourism/widgets/primary_appbar.dart';
-import 'package:the_punjab_tourism/widgets/primary_heading.dart';
+import 'package:the_punjab_tourism/widgets/primary_search_field.dart';
 
-class ViewCityPlacesUI extends StatefulWidget {
+class CityPlacesUI extends StatefulWidget {
   final CityModel city;
-  ViewCityPlacesUI({required this.city});
+  CityPlacesUI({required this.city});
 
   @override
-  State<ViewCityPlacesUI> createState() => _ViewCityPlacesUIState();
+  State<CityPlacesUI> createState() => _CityPlacesUIState();
 }
 
-class _ViewCityPlacesUIState extends State<ViewCityPlacesUI> {
+class _CityPlacesUIState extends State<CityPlacesUI> {
+  CityController cityController = Get.find();
   final PlaceController placeController = Get.find();
-  late List<PlaceModel> places;
+  List<PlaceModel> places = [];
 
   @override
   void initState() {
@@ -29,16 +33,25 @@ class _ViewCityPlacesUIState extends State<ViewCityPlacesUI> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: PrimaryAppBar(
-        title: PrimaryHeading(
-          text: widget.city.cityName,
-          fontSize: 24.0,
-        ),
+        titleText: widget.city.cityName,
         isCentered: true,
         backgroundImage: widget.city.imagePath,
-        heroTag: "${widget.city.id}-${widget.city.cityName}",
+        heroTag: cityController.getHeroTag(city: widget.city),
         expandedHeight: 200,
+        leading: IconButton.filled(
+          color: Colors.black,
+          style: ButtonStyle(
+            backgroundColor: WidgetStatePropertyAll(ColorConstants.LIGHT_GREY),
+            elevation: const WidgetStatePropertyAll(6.0),
+          ),
+          splashColor: ColorConstants.LIGHT_GREY,
+          onPressed: () {
+            Get.back();
+          },
+          icon: const Icon(Icons.arrow_back, size: 18),
+        ),
         body: Padding(
-          padding: const EdgeInsets.all(8.0),
+          padding: const EdgeInsets.only(left: 10.0, right: 10.0, top: 10.0),
           child: bodyContainer(),
         ),
       ),
@@ -47,10 +60,10 @@ class _ViewCityPlacesUIState extends State<ViewCityPlacesUI> {
 
   Widget bodyContainer() {
     return places.isEmpty
-        ? Center(
+        ? const Center(
             child: Column(
               mainAxisSize: MainAxisSize.min,
-              children: const [
+              children: [
                 Icon(Icons.hourglass_empty, size: 50, color: Colors.grey),
                 SizedBox(height: 10),
                 Text(
@@ -63,24 +76,29 @@ class _ViewCityPlacesUIState extends State<ViewCityPlacesUI> {
         : Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              PrimaryHeading(
-                text: "Explore Places",
-                fontSize: 24.0,
+              const SizedBox(
+                height: 18.0,
               ),
+              PrimarySearchField(
+                  onChanged: (value) {
+                    print("called");
+                  },
+                  hintText: "Search in ${widget.city.cityName}",
+                  controller: placeController.searchPlaceController),
               Expanded(
                 child: ListView.builder(
                   physics: const BouncingScrollPhysics(),
                   itemCount: places.length,
                   itemBuilder: (context, index) {
                     return PlaceCityView(
-                      heroTag: "${places[index].id}-${places[index].placeName}",
+                      heroTag: placeController.getHeroTag(place: places[index]),
                       title: places[index].placeName,
                       subtitle: places[index].description,
                       imagePath: places[index].imagePath,
                       isAssetImage: places[index].isAssetImage,
                       iconData: Icons.navigation,
                       onTap: () {
-                        // Get.to(() => PlaceDetailUI(place: places[index]));
+                        Get.to(() => PlaceDetailUI(place: places[index]));
                       },
                     );
                   },
